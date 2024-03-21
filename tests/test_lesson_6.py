@@ -6,7 +6,6 @@ def test_dark_theme_by_time():
     Протестируйте правильность переключения темной темы на сайте в зависимости от времени
     """
     current_time = time(hour=23)
-    is_dark_theme = None
     # TODO переключите темную тему в зависимости от времени суток (с 22 до 6 часов утра - ночь)
     if time(hour=6) < current_time < time(hour=22):
         is_dark_theme = False
@@ -25,7 +24,6 @@ def test_dark_theme_by_time_and_user_choice():
     """
     current_time = time(hour=16)
     dark_theme_enabled_by_user = True
-    is_dark_theme = None
     # TODO переключите темную тему в зависимости от времени суток,
     #  но учтите что темная тема может быть включена вручную
     if dark_theme_enabled_by_user is None:
@@ -55,7 +53,7 @@ def test_find_suitable_user():
     # TODO найдите пользователя с именем "Olga"
     suitable_users = {}
     for user in users:
-        if users['name'] == 'Olga':
+        if user['name'] == 'Olga':
             suitable_users = user
     assert suitable_users == {"name": "Olga", "age": 45}
 
@@ -81,7 +79,7 @@ def test_find_suitable_user():
 # "Open Browser [Chrome]"
 
 
-def print_function_name_and_args(func: str, *args: str):
+def print_function_name_and_args(func, *args: str):
     func_name = func.__name__.replace('_', ' ').title()
     args_name = ", ".join([*args])
     print(f"{func_name} [{args_name}]")
